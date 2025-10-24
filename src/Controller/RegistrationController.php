@@ -52,7 +52,13 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
-
+            $userRepository = $entityManager->getRepository(User::class);
+            $nbuser = $userRepository->findAll();
+            if (count($nbuser)<=0) {
+                $user->setRoles(['ROLE_ADMIN_ADMIN']);
+            } else {
+                $user->setRoles(['ROLE_CLIENTS']);
+            }
             return $this->redirectToRoute('app_dashboard');
         }
 
