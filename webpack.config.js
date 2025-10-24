@@ -56,6 +56,14 @@ Encore
         config.corejs = '3.23';
     })
 
+    .autoProvidejQuery()
+    
+    // Enable Sass/SCSS support
+    .enableSassLoader()
+    
+    // Enable PostCSS support (optionnel)
+    .enablePostCssLoader()
+
     // enables Sass/SCSS support
     //.enableSassLoader()
 
